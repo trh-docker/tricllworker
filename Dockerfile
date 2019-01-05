@@ -7,8 +7,8 @@ RUN apt-get update -y && apt-get install -y sudo apt-transport-https ca-certific
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - &&\
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" &&\
     apt-get update && apt-get install -y git docker-ce && \
-    apt-get purge sudo curl gnupg2 software-properties-common &&\
-    apt-get autoremove && apt-get autoclean &&\
+    apt-get purge -y sudo curl gnupg2 software-properties-common &&\
+    apt-get autoremove -y && apt-get autoclean -y &&\
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 ADD https://github.com/docker/compose/releases/download/${DOCKERCOMPOSE}/docker-compose-Linux-x86_64 /opt/docker/docker-compose
