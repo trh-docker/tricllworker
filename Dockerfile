@@ -4,7 +4,7 @@ RUN mkdir /opt/compose
 ENV DOCKERCOMPOSE=1.23.2 \
     DOCKER=18.09.0
 RUN apt-get update -y &&\
-    apt-get install sudo apt-transport-https ca-certificates curl gnupg2 software-properties-common &&\
+    apt-get install -y sudo apt-transport-https ca-certificates curl gnupg2 software-properties-common &&\
     apt-get autoremove && apt-get autoclean &&\
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
