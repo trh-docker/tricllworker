@@ -2,7 +2,8 @@ FROM quay.io/spivegin/tlmbasedebian
 
 RUN mkdir /opt/compose
 ENV DOCKERCOMPOSE=1.23.2 \
-    DOCKER=18.09.0
+    DOCKER=18.09.0 \
+    SUDO_FORCE_REMOVE=yes
 RUN apt-get update -y && apt-get install -y sudo apt-transport-https ca-certificates curl gnupg2 software-properties-common &&\
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - &&\
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" &&\
