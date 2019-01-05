@@ -13,7 +13,7 @@ ENV DOCKERCOMPOSE=1.23.2 \
 #     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 ADD ./debian-stretch/docker-ce-cli_0.0.0-20190105090409-a8f673f5fd-0~debian-stretch_amd64.deb /opt/tmp/docker-ce-cli.deb
 ADD https://github.com/docker/compose/releases/download/${DOCKERCOMPOSE}/docker-compose-Linux-x86_64 /opt/docker/docker-compose
-RUN apt-get update && apt-get install -y libltdl7 &&\
+RUN apt-get update && apt-get install -y libltdl7 git &&\
     dpkg -i /opt/tmp/docker-ce-cli.deb &&\
     chmod +x /opt/docker/docker-compose && ln -s /opt/docker/docker-compose /bin/docker-compose &&\
     apt-get autoremove && apt-get autoclean &&\
